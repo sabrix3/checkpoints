@@ -1,0 +1,127 @@
+ALGORITHM Problem1array
+VAR
+    t1 : ARRAY_OF INTEGER ;
+    t2 : ARRAY_OF INTEGER ;
+    i,j,sum,n,m : INTEGER;
+BEGIN
+    sum:=0;
+    n:=t1.length;
+    m:=t2.length;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+
+       FOR j FROM 0 TO m-1 STEP 1 DO
+          IF (t1[i]= t2[j]) THEN
+            t1[i]:=0;
+            t2[j]:=0;
+          END_if
+        END_FOR
+        sum:= sum+t1[i];
+    END_FOR
+
+    FOR j FROM 0 TO m-1 STEP 1 DO
+      sum:=sum+t2[j];
+    END_FOR
+    
+    writeln(sum);
+END
+
+
+
+
+ALGORITHM Problem1hashtab
+VAR
+  ht: HASH_TABLE<INTEGER,INTEGER>
+  set1,set2:array_of : ARRAY_OF INTEGER;
+  sum,i,j : integer;
+BEGIN
+  sum:=0;
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    ht.insert(set1[i],1);
+  END_FOR
+
+  FOR j FROM 0 TO set1.length-1 STEP 1 DO
+      IF (ht.lookup(set2[j],1) THEN
+          ht.set(set2[j],2)
+         ELSE 
+         ht.insert(set2[j],1));
+      END_IF
+  END_FOR
+
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO 
+      IF (ht.get(set1[i]=1)) THEN
+        sum:=sum+set1[i];
+      END_IF
+  END_FOR
+
+  FOR j FROM 0 TO set2.length-1 STEP 1 DO
+      IF (ht.get(set2[j]=1)) THEN
+         sum:= sum+set2[j];
+      END_IF
+  END_FOR
+
+  writeln ("sum:"+sum);
+  
+END
+
+
+
+
+ALGORITHM Problem2array
+VAR
+    t1, t2 : ARRAY_OF INTEGER;
+    i,j,sum,n,m : INTEGER;
+BEGIN
+sum:=0;
+    n:=t1.length , m:=t2.length;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+
+    FOR j FROM 0 TO m-1 STEP 1 DO
+
+        IF (t1[i]<>tab2[j]) THEN
+            t1[i]:=0;
+            t2[j]:=0;
+         END_IF
+        END_FOR
+        sum:= sum+t1[i];
+    END_FOR
+    
+    writeln(sum);
+END
+
+
+
+ALGORITHM Problem2hashtab
+VAR
+    ht: HASH_TABLE<INTEGER,INTEGER>;
+    set1,set2: ARRAY_OF INTEGER;
+    sum,i,j: INTEGER;
+
+BEGIN
+sum := 0;
+       FOR i FROM 0 TO set1.length-1 STEP 1 DO
+         ht.insert(set1[i],1);
+       END_FOR
+    
+    FOR j FROM 0 TO set2.length-1 STEP 1 DO
+        IF (ht.lookup(set2[j],1) THEN
+             ht.set(set2[j],2)
+            ELSE 
+            ht.insert(set2[j],1));
+        END_IF
+   END_FOR
+
+   FOR i FROM 0 TO set1.length-1 STEP 1 DO
+        IF (ht.get(set1[i]=2)) THEN
+                sum:=sum+set1[i];
+        END_IF
+    END_FOR            
+    
+    FOR j FROM 0 TO set2.length-1 STEP 1 DO
+        IF (ht.get(set2[j]=2)) THEN
+                sum:=sum+set2[j];
+        END_IF
+    END_FOR
+    
+    Writeln ("sum:"+sum);
+
+END
