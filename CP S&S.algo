@@ -1,0 +1,16 @@
+PROCEDURE Sorting(VAR tab : ARRAY, n : INTEGER)
+VAR
+    i,j,v : INTEGER;
+BEGIN
+    FOR i FROM 1 TO n-1 STEP 1 DO 
+      
+       v := tab[i];
+       j := i;
+      WHILE ((j>0) AND (tab[j-1]>v)) DO
+          tab[j] := tab[j-1];
+          j := j-1;
+      END_WHILE
+      tab[j] := v;
+    END_FOR
+       
+END
