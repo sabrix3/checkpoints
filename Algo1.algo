@@ -1,0 +1,25 @@
+ALGORITHM Algo1
+VAR
+    c: char;
+    v,w,l : INTEGER;
+    voy : ARRAY_OF char[10];
+BEGIN
+    l := 0;
+    w := 1;
+    v := 0;
+    voy := ['A','a','E','e','I','i','O','o','U','u'];
+    REPEAT
+      read(c);
+      IF (c= ' ') THEN
+          w := w+1;
+      END_IF
+      IF (c in voy) THEN
+          v := v+1;
+      END_IF
+      l := l+1;
+    UNTIL (c = '.')
+    writeln ("The length of the sentence=", l);
+    writeln ("The number of words in the sentence=", w);
+    writeln ("The number of vowels in the sentence=", v);
+
+END
